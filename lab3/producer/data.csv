@@ -1,0 +1,5 @@
+server_id,hostname,cpu_load,ram_mb
+1,web-node-01,45,2048
+2,db-node-01,80,8192
+3,cache-node-01,15,4096
+4,web-node-02,52,2048
