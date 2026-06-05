@@ -1,0 +1,6 @@
+trip_date,duration,start_station,end_station
+2026-06-02,12,Station_A,Station_B
+2026-06-02,25,Station_B,Station_C
+2026-06-02,8,Station_A,Station_C
+2026-06-03,15,Station_C,Station_A
+2026-06-03,40,Station_B,Station_A
