@@ -1,7 +1,10 @@
 package com.lab4;
 
 import java.util.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class DailyAggregate {
     public String date;
     public long count = 0;
@@ -24,16 +27,19 @@ public class DailyAggregate {
         return this;
     }
 
+    @JsonIgnore
     public String getAvgDuration() {
         return String.format(Locale.US, "%.2f", count == 0 ? 0 : totalDuration / count);
     }
 
-    public String getMostPopularStart() {
-        return startStations.entrySet().stream()
+    @JsonIgnore
+    public String getMostPopularStation() {
+        return allStations.entrySet().stream()
                 .max(Map.Entry.comparingByValue())
                 .map(Map.Entry::getKey).orElse("Unknown");
     }
 
+    @JsonIgnore
     public String getTop3Stations() {
         List<Map.Entry<String, Long>> sorted = new ArrayList<>(allStations.entrySet());
         sorted.sort((e1, e2) -> e2.getValue().compareTo(e1.getValue()));

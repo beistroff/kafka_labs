@@ -21,4 +21,4 @@ WORKDIR /app
 # Забираємо готовий jar-файл з першого етапу
 COPY --from=build /app/target/streams-app-1.0-SNAPSHOT.jar app.jar
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["sh", "-c", "echo 'Waiting for Kafka to be ready...' && sleep 30 && java -jar app.jar"]
